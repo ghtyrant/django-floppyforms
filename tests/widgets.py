@@ -21,7 +21,7 @@ class SomeModel(models.Model):
     some_field = models.CharField(max_length=255)
 
     def __str__(self):
-        return u'%s' % self.some_field
+        return '%s' % self.some_field
 
 
 class WidgetRenderingTest(TestCase):
@@ -1021,16 +1021,16 @@ class WidgetRenderingTest(TestCase):
                                  widget=forms.SelectDateWidget)
 
         rendered = SelectDateForm().as_p()
-        option_year = (u'<option value="%(year)d" selected="selected">'
-                       u'%(year)d</option>') % {'year': today.year}
+        option_year = ('<option value="%(year)d" selected="selected">'
+                       '%(year)d</option>') % {'year': today.year}
         self.assertTrue(option_year in rendered, rendered)
 
-        option_month = (u'<option value="%d" selected="selected">%s'
-                        u'</option>') % (today.month, MONTHS[today.month])
+        option_month = ('<option value="%d" selected="selected">%s'
+                        '</option>') % (today.month, MONTHS[today.month])
         self.assertTrue(option_month in rendered, rendered)
 
-        option_day = (u'<option value="%(day)d" selected="selected">%(day)d'
-                      u'</option>') % {'day': today.day}
+        option_day = ('<option value="%(day)d" selected="selected">%(day)d'
+                      '</option>') % {'day': today.day}
         self.assertTrue(option_day in rendered, rendered)
 
         self.assertFalse(' id="id_dt"' in rendered, rendered)
@@ -1213,7 +1213,7 @@ class WidgetRenderingTest(TestCase):
 class WidgetRenderingTestWithTemplateStringIfInvalidSet(WidgetRenderingTest):
     pass
 
-WidgetRenderingTestWithTemplateStringIfInvalidSet = override_settings(TEMPLATE_STRING_IF_INVALID=InvalidVariable(u'INVALID'))(WidgetRenderingTestWithTemplateStringIfInvalidSet)
+WidgetRenderingTestWithTemplateStringIfInvalidSet = override_settings(TEMPLATE_STRING_IF_INVALID=InvalidVariable('INVALID'))(WidgetRenderingTestWithTemplateStringIfInvalidSet)
 
 
 class WidgetContextTests(TestCase):
