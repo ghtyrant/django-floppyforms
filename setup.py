@@ -4,6 +4,7 @@ import re
 from os import path
 from distutils.core import setup
 from setuptools import find_packages
+import uprefix; uprefix.register_hook()
 
 
 def read(*parts):
