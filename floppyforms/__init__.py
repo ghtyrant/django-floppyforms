@@ -1,5 +1,4 @@
 # flake8: noqa
-import uprefix; uprefix.register_hook()
 from django.forms import (BaseModelForm, model_to_dict, fields_for_model,
                           save_instance, ValidationError, Media,
                           MediaDefiningClass)
